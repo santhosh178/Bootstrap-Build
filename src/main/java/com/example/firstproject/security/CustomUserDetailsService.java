@@ -1,6 +1,5 @@
 package com.example.firstproject.security;
 
-
 import com.example.firstproject.exception.ResourceNotFoundException;
 import com.example.firstproject.entity.User;
 import com.example.firstproject.repository.UserRepository;

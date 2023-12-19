@@ -6,10 +6,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class UserPrincipal implements UserDetails,OAuth2User {
 
@@ -38,6 +35,7 @@ public class UserPrincipal implements UserDetails,OAuth2User {
                 authorities
         );
     }
+
 
     public void setAttributes(Map<String, Object> attributes) {
         this.attributes = attributes;
@@ -87,4 +85,5 @@ public class UserPrincipal implements UserDetails,OAuth2User {
     public String getName() {
         return String.valueOf(id);
     }
+
 }

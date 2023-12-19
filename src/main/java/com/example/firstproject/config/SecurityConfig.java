@@ -24,7 +24,6 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 public class SecurityConfig extends WebSecurityConfigurerAdapter
 {
-
     @Autowired
     private CustomUserDetailsService customUserDetailsService;
 
@@ -40,6 +39,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
                 .userDetailsService(customUserDetailsService)
                 .passwordEncoder(passwordEncoder());
     }
+
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
@@ -69,7 +69,7 @@ protected void configure(HttpSecurity http)throws  Exception
                 .authenticationEntryPoint(new RestAuthenticationEntryPoint())
                 .and()
             .authorizeRequests()
-                .antMatchers("/auth/**","/student/**")
+                .antMatchers("/auth/**")
                 .permitAll()
             .anyRequest()
                 .authenticated()
@@ -77,4 +77,5 @@ protected void configure(HttpSecurity http)throws  Exception
 
     http.addFilterBefore(tokenAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
 }
+
 }
