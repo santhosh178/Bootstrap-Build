@@ -17,8 +17,6 @@ public class SignupRequest {
     @NotBlank
     private String phoneNumber;
 
-    private long imageId;
-
     public String getName() {
         return name;
     }
@@ -49,14 +47,6 @@ public class SignupRequest {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
-    }
-
-    public long getImageId() {
-        return imageId;
-    }
-
-    public void setImageId(long imageId) {
-        this.imageId = imageId;
     }
 
 }

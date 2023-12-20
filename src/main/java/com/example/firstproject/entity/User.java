@@ -1,45 +1,31 @@
 package com.example.firstproject.entity;
 
+import net.minidev.json.annotate.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.Email;
-import java.time.ZonedDateTime;
 
 @Entity
-@Table(name = "users",uniqueConstraints = {@UniqueConstraint(columnNames = "email")})
+@Table(name = "userDetails",uniqueConstraints = {@UniqueConstraint(columnNames = "email")})
+
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @Column(nullable = false)
     private String name;
 
     @Email
+    @Column(nullable = false)
     private String email;
 
+    @Column(nullable = false)
+    @JsonIgnore
     private String password;
 
+    @Column(nullable = false)
     private String phoneNumber;
-
-    private String status;
-
-    private String role;
-
-    @Column(name = "image_id")
-    private long imageId;
-
-    @Column(name = "added_time", nullable = false, updatable = false)
-    private ZonedDateTime addedTime;
-
-    @Column(name = "modified_time", nullable = false)
-    private ZonedDateTime modifiedTime;
-
-    public long getImageId() {
-        return imageId;
-    }
-
-    public void setImageId(long imageId) {
-        this.imageId = imageId;
-    }
 
     public long getId() {
         return id;
@@ -79,39 +65,6 @@ public class User {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-
-    public ZonedDateTime getAddedTime() {
-        return addedTime;
-    }
-
-    public void setAddedTime(ZonedDateTime addedTime) {
-        this.addedTime = addedTime;
-    }
-
-    public ZonedDateTime getModifiedTime() {
-        return modifiedTime;
-    }
-
-    public void setModifiedTime(ZonedDateTime modifiedTime) {
-        this.modifiedTime = modifiedTime;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
     }
 
 }

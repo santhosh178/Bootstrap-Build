@@ -8,8 +8,6 @@ import org.springframework.context.annotation.Configuration;
 public class AppProperties {
     private final Auth auth = new Auth();
 
-    private final Credits credits = new Credits();
-
     public static class Auth {
         private String tokenSecret;
         private long tokenExpirationMsec;
@@ -32,43 +30,8 @@ public class AppProperties {
         }
 
     }
-
-    public static class Credits {
-        private long credit;
-        private long creditForCreate;
-        private long creditForAssigner;
-
-        public long getCredit() {
-            return credit;
-        }
-
-        public void setCredit(long credit) {
-            this.credit = credit;
-        }
-
-        public long getCreditForCreate() {
-            return creditForCreate;
-        }
-
-        public void setCreditForCreate(long creditForCreate) {
-            this.creditForCreate = creditForCreate;
-        }
-
-        public long getCreditForAssigner() {
-            return creditForAssigner;
-        }
-
-        public void setCreditForAssigner(long creditForAssigner) {
-            this.creditForAssigner = creditForAssigner;
-        }
-    }
-
     public Auth getAuth() {
         return auth;
-    }
-
-    public Credits getCredits() {
-        return credits;
     }
 
 }
